@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h1>Fürstenau Fingering</h1>
+<form data-fingeringfinder-form>
+  <input name="search" type="text" placeholder="FingeringNumber" />
+  <button type="submit">Search</button>
+</form>
+<ul data-fingerings></ul>
+
+<script>
+const fingerings =
+[
+ {
+   "Number": "1",
+   "Fingering": "123456LC#LC"
+ },
+ {
+   "Number": "2",
+   "Fingering": "2456D#"
+ },
+ {
+   "Number": "3",
+   "Fingering": "2456"
+ },
+ {
+   "Number": "4",
+   "Fingering": "23D#"
+ },
+ {
+   "Number": "5",
+   "Fingering": "2356"
+ },
+ {
+   "Number": "6",
+   "Fingering": "1CD#"
+ },
+ {
+   "Number": "7",
+   "Fingering": "13456LC#LC"
+ },
+ {
+   "Number": "8",
+   "Fingering": "2BbD#"
+ },
+ {
+   "Number": "9a",
+   "Fingering": "1346D#"
+ },
+ {
+   "Number": "9b",
+   "Fingering": "12346D#"
+ },
+ {
+   "Number": "10",
+   "Fingering": "2456D#"
+ },
+ {
+   "Number": "11",
+   "Fingering": "1345FD#"
+ },
+ {
+   "Number": "12",
+   "Fingering": "12345FD#"
+ },
+ {
+   "Number": "13",
+   "Fingering": "1CD#"
+ },
+ {
+   "Number": "14",
+   "Fingering": "2345D#"
+ },
+ {
+   "Number": "15",
+   "Fingering": "2BbD#"
+ },
+ {
+   "Number": "16",
+   "Fingering": "13456LC#LC"
+ },
+ {
+   "Number": "17",
+   "Fingering": "1Bb35LB"
+ },
+ {
+   "Number": "18",
+   "Fingering": "123456LC#"
+ },
+ {
+   "Number": "19",
+   "Fingering": "D#"
+ },
+ {
+   "Number": "20",
+   "Fingering": "CD#"
+ },
+ {
+   "Number": "21",
+   "Fingering": "34D#"
+ },
+ {
+   "Number": "22",
+   "Fingering": "456D#"
+ },
+ {
+   "Number": "23",
+   "Fingering": "456"
+ },
+ {
+   "Number": "24",
+   "Fingering": "13456LC#"
+ },
+ {
+   "Number": "25",
+   "Fingering": "23456LC#"
+ },
+ {
+   "Number": "26",
+   "Fingering": "123456LC#"
+ },
+ {
+   "Number": "27",
+   "Fingering": "234D#"
+ },
+ {
+   "Number": "28a",
+   "Fingering": "CD#"
+ },
+ {
+   "Number": "28b",
+   "Fingering": "D#"
+ },
+ {
+   "Number": "29",
+   "Fingering": "34D#"
+ },
+ {
+   "Number": "30",
+   "Fingering": "1234FD#"
+ },
+ {
+   "Number": "31",
+   "Fingering": "23G#45FD#"
+ },
+ {
+   "Number": "32",
+   "Fingering": "13456LC#"
+ },
+ {
+   "Number": "33",
+   "Fingering": "2Bb3456LC#"
+ },
+ {
+   "Number": "34",
+   "Fingering": "123456LC#"
+ },
+ {
+   "Number": "35",
+   "Fingering": "123456"
+ },
+ {
+   "Number": "36",
+   "Fingering": "23456"
+ },
+ {
+   "Number": "37",
+   "Fingering": "123456"
+ },
+ {
+   "Number": "38",
+   "Fingering": "23D#"
+ },
+ {
+   "Number": "39",
+   "Fingering": "23456"
+ },
+ {
+   "Number": "40",
+   "Fingering": "2346"
+ },
+ {
+   "Number": "41",
+   "Fingering": "123FD#"
+ },
+ {
+   "Number": "42",
+   "Fingering": "123456D#"
+ },
+ {
+   "Number": "43",
+   "Fingering": "23456D#"
+ },
+ {
+   "Number": "44",
+   "Fingering": "123456D#"
+ },
+ {
+   "Number": "45",
+   "Fingering": "12356D#"
+ },
+ {
+   "Number": "46",
+   "Fingering": "2356D#"
+ },
+ {
+   "Number": "47",
+   "Fingering": "123456D#"
+ },
+ {
+   "Number": "48",
+   "Fingering": "23456D#"
+ },
+ {
+   "Number": "49a",
+   "Fingering": "123G#FD#"
+ },
+ {
+   "Number": "49b",
+   "Fingering": "23G#D#"
+ },
+ {
+   "Number": "49c",
+   "Fingering": "2Bb36LC#"
+ },
+ {
+   "Number": "50",
+   "Fingering": "12345D#"
+ },
+ {
+   "Number": "51",
+   "Fingering": "12345D#"
+ },
+ {
+   "Number": "52",
+   "Fingering": "1256D#"
+ },
+ {
+   "Number": "53",
+   "Fingering": "12456D#"
+ },
+ {
+   "Number": "54",
+   "Fingering": "123G#45D#"
+ },
+ {
+   "Number": "55a",
+   "Fingering": "12345D#"
+ },
+ {
+   "Number": "55b",
+   "Fingering": "1245D#"
+ },
+ {
+   "Number": "56a",
+   "Fingering": "12Bb3G#56D#"
+ },
+ {
+   "Number": "56b",
+   "Fingering": "12FD#"
+ },
+ {
+   "Number": "57",
+   "Fingering": "12345FD#"
+ },
+ {
+   "Number": "58",
+   "Fingering": "12345F6D#"
+ },
+ {
+   "Number": "59",
+   "Fingering": "12346D#"
+ },
+ {
+   "Number": "60",
+   "Fingering": "12345FD#"
+ },
+ {
+   "Number": "61",
+   "Fingering": "12345F6D#"
+ },
+ {
+   "Number": "62",
+   "Fingering": "1234F6D#"
+ },
+ {
+   "Number": "63",
+   "Fingering": "1245FD#"
+ },
+ {
+   "Number": "64a",
+   "Fingering": "12345FD#"
+ },
+ {
+   "Number": "64b",
+   "Fingering": "12Bb345D#"
+ },
+ {
+   "Number": "65",
+   "Fingering": "124D#"
+ },
+ {
+   "Number": "66",
+   "Fingering": "12BbG#56D#"
+ },
+ {
+   "Number": "67a",
+   "Fingering": "12456LC#"
+ },
+ {
+   "Number": "67b",
+   "Fingering": "12Bb345LC#"
+ },
+ {
+   "Number": "68a",
+   "Fingering": "156D#"
+ },
+ {
+   "Number": "68b",
+   "Fingering": "1234D#"
+ },
+ {
+   "Number": "69",
+   "Fingering": "1234FD#"
+ },
+ {
+   "Number": "70",
+   "Fingering": "1234D#"
+ },
+ {
+   "Number": "71",
+   "Fingering": "1234FD#"
+ },
+ {
+   "Number": "72",
+   "Fingering": "1234D#"
+ },
+ {
+   "Number": "73",
+   "Fingering": "12356D#"
+ },
+ {
+   "Number": "74",
+   "Fingering": "124"
+ },
+ {
+   "Number": "75",
+   "Fingering": "12Bb34"
+ },
+ {
+   "Number": "76",
+   "Fingering": "1234"
+ },
+ {
+   "Number": "77",
+   "Fingering": "12Bb34FD#"
+ },
+ {
+   "Number": "78a",
+   "Fingering": "14D#"
+ },
+ {
+   "Number": "78b",
+   "Fingering": "145FD#"
+ },
+ {
+   "Number": "79a",
+   "Fingering": "13456"
+ },
+ {
+   "Number": "79b",
+   "Fingering": "1BbG#56D#"
+ },
+ {
+   "Number": "79c",
+   "Fingering": "1G#45D#"
+ },
+ {
+   "Number": "80",
+   "Fingering": "123D#"
+ },
+ {
+   "Number": "81",
+   "Fingering": "123D#"
+ },
+ {
+   "Number": "82a",
+   "Fingering": "13"
+ },
+ {
+   "Number": "82b",
+   "Fingering": "1Bb3FD#"
+ },
+ {
+   "Number": "83",
+   "Fingering": "123"
+ },
+ {
+   "Number": "84",
+   "Fingering": "12Bb3"
+ },
+ {
+   "Number": "85a",
+   "Fingering": "12Bb3FD#"
+ },
+ {
+   "Number": "85b",
+   "Fingering": "136D#"
+ },
+ {
+   "Number": "86",
+   "Fingering": "23456LC#LC"
+ },
+ {
+   "Number": "87",
+   "Fingering": "13456LC#LC"
+ },
+ {
+   "Number": "88",
+   "Fingering": "12Bb3LC#"
+ },
+ {
+   "Number": "89",
+   "Fingering": "123G#D#"
+ },
+ {
+   "Number": "90",
+   "Fingering": "123G#D#"
+ },
+ {
+   "Number": "91",
+   "Fingering": "1246D#"
+ },
+ {
+   "Number": "92",
+   "Fingering": "124D#"
+ },
+ {
+   "Number": "93",
+   "Fingering": "123G#456LC#"
+ },
+ {
+   "Number": "94",
+   "Fingering": "36D#"
+ },
+ {
+   "Number": "95",
+   "Fingering": "3"
+ },
+ {
+   "Number": "96",
+   "Fingering": "Bb34"
+ },
+ {
+   "Number": "97",
+   "Fingering": "23456LC#"
+ },
+ {
+   "Number": "98",
+   "Fingering": "12D#"
+ },
+ {
+   "Number": "99",
+   "Fingering": "12D#"
+ },
+ {
+   "Number": "100",
+   "Fingering": "12Bb3D#"
+ },
+ {
+   "Number": "101",
+   "Fingering": "12456LC#"
+ },
+ {
+   "Number": "102",
+   "Fingering": "23G#45"
+ },
+ {
+   "Number": "103",
+   "Fingering": "2345"
+ },
+ {
+   "Number": "104",
+   "Fingering": "23G#456"
+ },
+ {
+   "Number": "105",
+   "Fingering": "23456"
+ },
+ {
+   "Number": "106",
+   "Fingering": "12BbD#"
+ },
+ {
+   "Number": "107",
+   "Fingering": "13D#"
+ },
+ {
+   "Number": "108",
+   "Fingering": "12Bb3G#D#"
+ },
+ {
+   "Number": "109",
+   "Fingering": "12456D#"
+ },
+ {
+   "Number": "110",
+   "Fingering": "123456D#"
+ },
+ {
+   "Number": "111",
+   "Fingering": "12BbD#"
+ },
+ {
+   "Number": "112",
+   "Fingering": "13D#"
+ },
+ {
+   "Number": "113",
+   "Fingering": "2G#45F"
+ },
+ {
+   "Number": "114",
+   "Fingering": "23G#4F"
+ },
+ {
+   "Number": "115",
+   "Fingering": "2G#4F"
+ },
+ {
+   "Number": "116",
+   "Fingering": "123456LC#LCLB"
+ },
+ {
+   "Number": "117",
+   "Fingering": "1D#"
+ },
+ {
+   "Number": "118",
+   "Fingering": "12Bb3456LC#LCLB"
+ },
+ {
+   "Number": "119",
+   "Fingering": "13456D#"
+ },
+ {
+   "Number": "120",
+   "Fingering": "1D#"
+ },
+ {
+   "Number": "121a",
+   "Fingering": "12345D#"
+ },
+ {
+   "Number": "121b",
+   "Fingering": "23456D#"
+ },
+ {
+   "Number": "122",
+   "Fingering": "12Bb3456LC#LCLB"
+ },
+ {
+   "Number": "123",
+   "Fingering": "1246LB"
+ },
+ {
+   "Number": "124",
+   "Fingering": "24"
+ }
+];
+
+document
+  .querySelector("[data-fingeringfinder-form]")
+  .addEventListener("submit", (e) => {
+    e.preventDefault();
+    renderBooks(generateBookHTML(booksFilter(e.target.search.value)));
+  });
+
+function booksFilter(targetBook, allBooks = fingerings) {
+  return allBooks.filter((book) => {
+    return book.Number == targetBook;
+  });
+}
+
+function renderBooks(targetHTML) {
+  const bookList = document.querySelector("[data-fingerings]");
+  bookList.innerHTML = targetHTML;
+}
+
+function generateBookHTML(targetBooks) {
+  return targetBooks
+    .map((book) => {
+      return `<li class="bookList__item">${book.Number} - <span class="bookList__author">${book.Fingering}</span></li>`;
+    })
+    .join("");
+}
+
+</script>
+
+
+</body>
+
+</html>
