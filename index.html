@@ -30,7 +30,8 @@ document
 
 function booksFilter(targetBook, allBooks = fingerings) {
   return allBooks.filter((book) => {
-    return book.Number == targetBook;
+    const inputNumbers = targetBook.split(",");
+    return inputNumbers.includes(book.Number);
   });
 }
 
